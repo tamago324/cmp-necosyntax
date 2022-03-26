@@ -1,0 +1,5 @@
+# cmp-necosyntax
+
+## License
+
+MIT
