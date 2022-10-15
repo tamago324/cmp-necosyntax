@@ -1,15 +1,6 @@
 local cmp = require'cmp'
 
-local M = {
-  config = {
-    filetypes = {"*"},
-  },
-}
-
-M.setup = function(opts)
-  opts = vim.tbl_deep_extend('keep', opts, M.config)
-  M.config = opts
-end
+local M = {}
 
 M.new = function()
   local self = setmetatable({}, { __index = M })
@@ -33,10 +24,6 @@ M.complete = function(self, request, callback)
   end
 
   callback(words)
-end
-
-M.is_available = function(self)
-  return vim.deep_equal(self.config.filetypes, {"*"}) or vim.tbl_contains(self.config.filetypes, vim.bo.filetype)
 end
 
 return M
